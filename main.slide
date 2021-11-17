@@ -22,7 +22,7 @@ M Izzuddin Syamil
 * Concurrency Pattern
 
 * Pipeline
-.image pipeline.png
+.image images/pipeline.png
 
 * Fan In/Fan Out
-.image fanin.png
+.image images/fanin.png

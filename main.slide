@@ -1,0 +1,28 @@
+Concurrency Pattern
+
+19 November 2021
+M Izzuddin Syamil
+
+* Background
+- One of Go's key feature
+- Not very common, so a bit harder to understand
+
+* Communicating Sequential Processes (CSP)
+- Data is communicated between processes via channels
+- Scale by adding more of the same
+
+* Go's Concurrency Primitives
+- Goroutine
+- Channel
+- Select
+- Sync package
+
+* Channels
+
+* Concurrency Pattern
+
+* Pipeline
+.image pipeline.png
+
+* Fan In/Fan Out
+.image fanin.png

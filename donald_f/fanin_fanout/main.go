@@ -59,15 +59,14 @@ func fanIn(channels ...<-chan item) <-chan item {
 
 	out := make(chan item)
 
-	output := func(c <-chan item) {
-		defer wg.Done()
-		for i := range c {
-			out <- i
-		}
-	}
-
 	for _, c := range channels {
-		go output(c)
+		go func(c <-chan item) {
+			defer wg.Done()
+			for i := range c {
+				out <- i
+			}
+		}(c)
+
 	}
 
 	go func() {

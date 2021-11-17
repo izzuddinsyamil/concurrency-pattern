@@ -70,19 +70,17 @@ func fanIn(done <-chan bool, channels ...<-chan item) <-chan item {
 
 	out := make(chan item)
 
-	output := func(c <-chan item) {
-		defer wg.Done()
-		for i := range c {
-			select {
-			case out <- i:
-			case <-done:
-				return
-			}
-		}
-	}
-
 	for _, c := range channels {
-		go output(c)
+		go func(c <-chan item) {
+			defer wg.Done()
+			for i := range c {
+				select {
+				case out <- i:
+				case <-done:
+					return
+				}
+			}
+		}(c)
 	}
 
 	go func() {

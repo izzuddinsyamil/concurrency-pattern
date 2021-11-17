@@ -66,7 +66,6 @@ func fanIn(channels ...<-chan item) <-chan item {
 				out <- i
 			}
 		}(c)
-
 	}
 
 	go func() {

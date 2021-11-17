@@ -58,7 +58,6 @@ func discount(done <-chan bool, items <-chan item) <-chan item {
 			case <-done:
 				return
 			}
-
 		}
 	}()
 	return out

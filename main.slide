@@ -26,3 +26,10 @@ M Izzuddin Syamil
 
 * Fan In/Fan Out
 .image images/fanin.png
+
+* Fan In/Fan Out with Termination
+
+* References
+- https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3
+- 3 SIMPLE patterns to organize your goroutines https://www.youtube.com/watch?v=245QljYu3-A
+- Concurrency Patterns In Go https://www.youtube.com/watch?v=YEKjSzIwAdA&t=1321s

@@ -4,7 +4,7 @@ import "fmt"
 
 //START OMIT
 func main() {
-	theMine := []string{"rock", "ore", "ore", "rock", "ore"}
+	theMine := []string{"rock", "ore1", "ore2", "rock", "ore3"}
 
 	foundOre := finder(theMine)
 	fmt.Println(foundOre)
@@ -21,7 +21,7 @@ func main() {
 func finder(mine []string) []string {
 	var out []string
 	for _, v := range mine {
-		if v == "ore" {
+		if v[:3] == "ore" {
 			out = append(out, v)
 		}
 	}

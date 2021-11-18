@@ -45,9 +45,22 @@ image source: https://medium.com/@trevor4e/learning-gos-concurrency-through-illu
 
 * Pipeline
 .image images/ore_mining_pipeline.png 300 970
+image source: https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3
 
 * Fan In/Fan Out
 .image images/fanin.png
+
+* Fan In/Fan Out: Extract finder()
+.code ore_mining_presentation/fanin_fanout/main.go /^//START1/,/^//END1/
+
+* Fan In/Fan Out: Extract miner()
+.code ore_mining_presentation/fanin_fanout/main.go /^//START2/,/^//END2/
+
+* Fan In/Fan Out: Extract smelter()
+.code ore_mining_presentation/fanin_fanout/main.go /^//START3/,/^//END3/
+
+* Fan In/Fan Out: main()
+.play ore_mining_presentation/fanin_fanout/main.go /^//START4/,/^//END4/
 
 * Fan In/Fan Out with Termination
 

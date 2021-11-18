@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// START4 OMIT
 func main() {
 	theMine := []string{"rock", "ore1", "ore2", "rock", "ore3"}
 
@@ -19,6 +20,9 @@ func main() {
 	}
 }
 
+// END4 OMIT
+
+// START1 OMIT
 func finder(mine []string) <-chan string {
 	out := make(chan string)
 	go func() {
@@ -32,6 +36,9 @@ func finder(mine []string) <-chan string {
 	return out
 }
 
+// END1 OMIT
+
+// START2 OMIT
 func miner(ore <-chan string) <-chan string {
 	out := make(chan string)
 	go func() {
@@ -43,6 +50,9 @@ func miner(ore <-chan string) <-chan string {
 	return out
 }
 
+// END2 OMIT
+
+// START3 OMIT
 func smelter(minedOre ...<-chan string) <-chan string {
 	wg := sync.WaitGroup{}
 	wg.Add(len(minedOre))
@@ -61,6 +71,7 @@ func smelter(minedOre ...<-chan string) <-chan string {
 		wg.Wait()
 		close(out)
 	}()
-
 	return out
 }
+
+// END3 OMIT

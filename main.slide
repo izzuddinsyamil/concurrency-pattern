@@ -70,4 +70,4 @@ image source: https://medium.com/@trevor4e/learning-gos-concurrency-through-illu
 * References
 - https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3
 - 3 SIMPLE patterns to organize your goroutines https://www.youtube.com/watch?v=245QljYu3-A
-- Concurrency Patterns In Go https://www.youtube.com/watch?v=YEKjSzIwAdA&t=1321s
+- Go (Golang) Fan-In Fan-Out Pattern https://www.youtube.com/watch?v=rlPbtzBmHp8

@@ -5,13 +5,14 @@ import (
 	"sync"
 )
 
+// START1 OMIT
 func main() {
-
-	done := make(chan bool)
-	defer close(done)
+	done := make(chan bool) // HL
+	defer close(done)       // HL
 
 	theMine := []string{"rock", "ore1", "ore2", "rock", "ore3"}
 
+	// END1 OMIT
 	oreChan := finder(done, theMine)
 
 	m1 := miner(done, oreChan)
@@ -23,17 +24,17 @@ func main() {
 	fmt.Printf("%s is smelted\n", <-smelted)
 }
 
+// START2 OMIT
 func finder(done chan bool, mine []string) <-chan string {
 	out := make(chan string)
 	go func() {
 		for _, item := range mine {
 			if item[:3] == "ore" {
-				select {
-				case out <- item:
-				case <-done:
-					return
-				}
-
+				select { // HL
+				case out <- item: // HL
+				case <-done: // HL
+					return // HL
+				} // HL
 			}
 		}
 		close(out)
@@ -41,22 +42,27 @@ func finder(done chan bool, mine []string) <-chan string {
 	return out
 }
 
+// END2 OMIT
+
+// START3 OMIT
 func miner(done chan bool, ore <-chan string) <-chan string {
 	out := make(chan string)
 	go func() {
 		for o := range ore {
-			select {
-			case out <- fmt.Sprintf("mined %s", o):
-			case <-done:
-				return
-			}
-
+			select { // HL
+			case out <- fmt.Sprintf("mined %s", o): // HL
+			case <-done: // HL
+				return // HL
+			} // HL
 		}
 		close(out)
 	}()
 	return out
 }
 
+// END3 OMIT
+
+// START4 OMIT
 func smelter(done chan bool, minedOre ...<-chan string) <-chan string {
 	wg := sync.WaitGroup{}
 	wg.Add(len(minedOre))
@@ -64,13 +70,12 @@ func smelter(done chan bool, minedOre ...<-chan string) <-chan string {
 	out := make(chan string)
 	for _, c := range minedOre {
 		go func(ore <-chan string) {
-			for o := range ore {
-				select {
-				case out <- o:
-				case <-done:
-					return
-				}
-
+			for o := range ore { // HL
+				select { // HL
+				case out <- o: // HL
+				case <-done: // HL
+					return // HL
+				} // HL
 			}
 			wg.Done()
 		}(c)
@@ -83,3 +88,5 @@ func smelter(done chan bool, minedOre ...<-chan string) <-chan string {
 
 	return out
 }
+
+// END4 OMIT

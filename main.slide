@@ -72,13 +72,13 @@ image source: https://medium.com/@trevor4e/learning-gos-concurrency-through-illu
 * Fan In/Fan Out
 .image images/fanin.png
 
-* Fan In/Fan Out: Extract finder()
+* Fan In/Fan Out: finder()
 .code ore_mining_presentation/fanin_fanout/main.go /^//START1/,/^//END1/
 
-* Fan In/Fan Out: Extract miner()
+* Fan In/Fan Out: miner()
 .code ore_mining_presentation/fanin_fanout/main.go /^//START2/,/^//END2/
 
-* Fan In/Fan Out: Extract smelter()
+* Fan In/Fan Out: smelter()
 .code ore_mining_presentation/fanin_fanout/main.go /^//START3/,/^//END3/
 
 * Fan In/Fan Out: main()

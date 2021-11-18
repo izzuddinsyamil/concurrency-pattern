@@ -12,7 +12,7 @@ func main() {
 	minedOreChan := make(chan string) // HL
 
 	wg := &sync.WaitGroup{}
-	wg.Add(3)
+	wg.Add(1)
 	// END1 OMIT
 
 	// START2 OMIT
@@ -24,7 +24,6 @@ func main() {
 			}
 		}
 		close(oreChan)
-		wg.Done()
 	}(theMine)
 	// END2 OMIT
 
@@ -36,7 +35,6 @@ func main() {
 			minedOreChan <- "mined " + foundOre
 		}
 		close(minedOreChan)
-		wg.Done()
 	}()
 	// END3 OMIT
 

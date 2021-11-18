@@ -11,7 +11,7 @@ func main() {
 	minedOreChan := make(chan string)
 
 	wg := &sync.WaitGroup{}
-	wg.Add(3)
+	wg.Add(1)
 
 	// Finder
 	go func(mine []string) {
@@ -21,7 +21,6 @@ func main() {
 			}
 		}
 		close(oreChan)
-		wg.Done()
 	}(theMine)
 
 	// Ore Breaker
@@ -31,7 +30,6 @@ func main() {
 			minedOreChan <- "mined " + foundOre
 		}
 		close(minedOreChan)
-		wg.Done()
 	}()
 
 	// Smelter

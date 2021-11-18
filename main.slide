@@ -3,20 +3,38 @@ Concurrency Pattern
 19 November 2021
 M Izzuddin Syamil
 
-* Background
-- One of Go's key feature
-- Not very common, so a bit harder to understand
+* Background about the choosing of the topic
+One of Go's key feature
+
+Not very common, so a bit harder to understand
 
 * Go's Concurrency Primitives
-- Goroutine
-- Channel
-- Select
-- Sync package
+
+* Goroutine
+- Lightweight thread managed by go runtime
+- It's an independently executing function, launched by a go statement
+- main() is a goroutine
+
+`go` `f(x,y,z)`
+launches a goroutine for function f(x,y,z)
+
+.play primitive/goroutine/main.go /^//START/,/^//END/
+
+* Channel
+channels are medium through which goroutines can communicate with each other
+
+`ch` `<-` `v`   // Send v to channel ch.
+`v` `:=` `<-ch` // Receive from ch, and assign value to v.
+
+* Channel Example
+
+.play primitive/channel/main.go /^//START/,/^//END/
+
+* Patterns
 
 * Concurrency Pattern
 - Pipeline
 - Fan In/Out
-- Fan In/Out With Termination
 
 * Ore Mining: Single-threaded
 .play ore_mining_presentation/base/main.go /^//START/,/^//END/

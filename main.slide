@@ -13,12 +13,38 @@ M Izzuddin Syamil
 - Select
 - Sync package
 
-* Channels
-
 * Concurrency Pattern
+- Pipeline
+- Fan In/Out
+- Fan In/Out With Termination
+
+* Ore Mining: Single-threaded
+.play ore_mining_presentation/base/main.go /^//START/,/^//END/
+
+* Ore Mining: Single-threaded
+.image images/ore_mining_single_t.png 300 900
+image source: https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3
 
 * Pipeline
 .image images/pipeline.png
+
+* Pipeline: Add channels
+.code ore_mining_presentation/pipeline/main.go /^//START1/,/^//END1/
+
+* Pipeline: Finder Routine
+.code ore_mining_presentation/pipeline/main.go /^//START2/,/^//END2/
+
+* Pipeline: Miner Routine
+.code ore_mining_presentation/pipeline/main.go /^//START3/,/^//END3/
+
+* Pipeline: Smelter Routine
+.code ore_mining_presentation/pipeline/main.go /^//START4/,/^//END4/
+
+* Pipeline
+.play ore_mining_presentation/pipeline/main.go /^//START1/,/^//END1/
+
+* Pipeline
+.image images/ore_mining_pipeline.png 300 970
 
 * Fan In/Fan Out
 .image images/fanin.png
